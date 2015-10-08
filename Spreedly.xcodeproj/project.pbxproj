@@ -10,8 +10,8 @@
 		63E67F451BC6BE4B0023E846 /* Spreedly.h in Headers */ = {isa = PBXBuildFile; fileRef = 63E67F441BC6BE4B0023E846 /* Spreedly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63E67F4C1BC6BE4B0023E846 /* Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E67F411BC6BE4B0023E846 /* Spreedly.framework */; settings = {ASSET_TAGS = (); }; };
 		63E67F511BC6BE4B0023E846 /* SpreedlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F501BC6BE4B0023E846 /* SpreedlyTests.swift */; };
-		63E67F7C1BC6C1420023E846 /* Spreedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* Spreedly.swift */; settings = {ASSET_TAGS = (); }; };
-		63E67F7D1BC6C1420023E846 /* Spreedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* Spreedly.swift */; settings = {ASSET_TAGS = (); }; };
+		63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */; settings = {ASSET_TAGS = (); }; };
+		63E67F7D1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 		63E67F4B1BC6BE4B0023E846 /* SpreedlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpreedlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E67F501BC6BE4B0023E846 /* SpreedlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreedlyTests.swift; sourceTree = "<group>"; };
 		63E67F521BC6BE4B0023E846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63E67F7B1BC6C1420023E846 /* Spreedly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spreedly.swift; sourceTree = "<group>"; };
+		63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreedlyAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				63E67F441BC6BE4B0023E846 /* Spreedly.h */,
-				63E67F7B1BC6C1420023E846 /* Spreedly.swift */,
+				63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */,
 				63E67F801BC6C4600023E846 /* Supporting Files */,
 			);
 			path = Spreedly;
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63E67F7C1BC6C1420023E846 /* Spreedly.swift in Sources */,
+				63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E67F511BC6BE4B0023E846 /* SpreedlyTests.swift in Sources */,
-				63E67F7D1BC6C1420023E846 /* Spreedly.swift in Sources */,
+				63E67F7D1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
