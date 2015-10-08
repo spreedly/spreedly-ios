@@ -74,9 +74,9 @@
 		63E67F431BC6BE4B0023E846 /* Spreedly */ = {
 			isa = PBXGroup;
 			children = (
-				63E67F7B1BC6C1420023E846 /* Spreedly.swift */,
 				63E67F441BC6BE4B0023E846 /* Spreedly.h */,
-				63E67F461BC6BE4B0023E846 /* Info.plist */,
+				63E67F7B1BC6C1420023E846 /* Spreedly.swift */,
+				63E67F801BC6C4600023E846 /* Supporting Files */,
 			);
 			path = Spreedly;
 			sourceTree = "<group>";
@@ -85,9 +85,25 @@
 			isa = PBXGroup;
 			children = (
 				63E67F501BC6BE4B0023E846 /* SpreedlyTests.swift */,
-				63E67F521BC6BE4B0023E846 /* Info.plist */,
+				63E67F811BC6C4900023E846 /* Supporting Files */,
 			);
 			path = SpreedlyTests;
+			sourceTree = "<group>";
+		};
+		63E67F801BC6C4600023E846 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63E67F461BC6BE4B0023E846 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63E67F811BC6C4900023E846 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63E67F521BC6BE4B0023E846 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
