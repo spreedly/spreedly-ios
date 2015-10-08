@@ -1,6 +1,5 @@
 //
 //  SpreedlyAPIClient.swift
-//  BnL
 //
 //  Created by David Santoso on 9/22/15.
 //  Copyright © 2015 Spreedly Inc. All rights reserved.
@@ -16,7 +15,7 @@ public class SpreedlyAPIClient: NSObject {
         super.init()
     }
 
-    func createPaymentMethodToken(cardData: [String: String], completion: (token: String?, error: NSError?) -> Void) {
+    public func createPaymentMethodToken(cardData: [String: String], completion: (token: String?, error: NSError?) -> Void) {
         let url = NSURL(string: "http://core.spreedly.dev/v1/payment_methods.json?environment_key=\(self.environmentKey)")
         let body = [ "payment_method": [ "credit_card": cardData ]]
 
@@ -36,7 +35,7 @@ public class SpreedlyAPIClient: NSObject {
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             guard data != nil else {
                 print("No data returned. Error: \(error)")
-                return // Should refactor to return an NSError of no data received
+                return
             }
 
             do {
