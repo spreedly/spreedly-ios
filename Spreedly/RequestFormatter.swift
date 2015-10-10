@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  RequestFormatter.swift
 //  Spreedly
 //
 //  Created by David Santoso on 10/10/15.
@@ -10,7 +10,7 @@ import Foundation
 
 public class SpreedlyAPIRequestFormatter {
     
-    public static func format(creditCard: CreditCard) -> NSData {
+    public static func format(creditCard: CreditCard) -> (data: NSData?, error: NSError?) {
         var cardDict = [String: String]()
         
         if let cardFirstName = creditCard.firstName {
@@ -41,9 +41,10 @@ public class SpreedlyAPIRequestFormatter {
         
         do {
             let data = try NSJSONSerialization.dataWithJSONObject(body, options: [])
-            return data
+            return (data, nil)
         } catch let serializeError as NSError {
             print("Error serializing credit card. Error: \(serializeError)")
+            return (nil, serializeError)
         }
     }
 }

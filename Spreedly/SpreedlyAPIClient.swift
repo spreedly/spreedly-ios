@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Spreedly
 
 public class SpreedlyAPIClient {
     let environmentKey: String
@@ -19,8 +18,10 @@ public class SpreedlyAPIClient {
     }
     
     public func createPaymentMethodTokenWithCreditCard(creditCard: CreditCard, completion: SpreedlyAPICompletionBlock) {
-        let data = SpreedlyAPIRequestFormatter.format(creditCard)
-        self.createPaymentMethodTokenWithData(data, completion: completion)
+        let formattedRequest = SpreedlyAPIRequestFormatter.format(creditCard)
+        if formattedRequest.error == nil {
+            self.createPaymentMethodTokenWithData(formattedRequest.data!, completion: completion)
+        }
     }
 
     func createPaymentMethodTokenWithData(data: NSData, completion: SpreedlyAPICompletionBlock) {

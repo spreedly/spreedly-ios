@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6337405A1BC967150091372A /* RequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633740591BC967150091372A /* RequestFormatter.swift */; settings = {ASSET_TAGS = (); }; };
 		6337405B1BC967150091372A /* RequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633740591BC967150091372A /* RequestFormatter.swift */; settings = {ASSET_TAGS = (); }; };
+		6337405C1BC97F260091372A /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EB2BA1BC6E06900DCA59B /* CreditCard.swift */; settings = {ASSET_TAGS = (); }; };
 		635EB2BB1BC6E06900DCA59B /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EB2BA1BC6E06900DCA59B /* CreditCard.swift */; settings = {ASSET_TAGS = (); }; };
 		635EB2BE1BC70D7A00DCA59B /* PaymentMethodToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EB2BD1BC70D7A00DCA59B /* PaymentMethodToken.swift */; settings = {ASSET_TAGS = (); }; };
 		635EB2BF1BC70D7A00DCA59B /* PaymentMethodToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EB2BD1BC70D7A00DCA59B /* PaymentMethodToken.swift */; settings = {ASSET_TAGS = (); }; };
@@ -237,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				635EB2BF1BC70D7A00DCA59B /* PaymentMethodToken.swift in Sources */,
+				6337405C1BC97F260091372A /* CreditCard.swift in Sources */,
 				6337405B1BC967150091372A /* RequestFormatter.swift in Sources */,
 				63E67F511BC6BE4B0023E846 /* SpreedlyTests.swift in Sources */,
 				63E67F7D1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,
