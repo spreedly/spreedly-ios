@@ -9,5 +9,5 @@
 import Foundation
 
 public struct PaymentMethodToken {
-    var token: String
+    public var token: String
 }
