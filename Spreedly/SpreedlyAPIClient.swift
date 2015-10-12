@@ -9,9 +9,10 @@
 import Foundation
 
 public class SpreedlyAPIClient {
-    let environmentKey: String
-    
     public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
+    
+    let apiUrl = "http://core.spreedly.com/v1/payment_methods.json?environment_key="
+    let environmentKey: String
 
     public init(environmentKey: String) {
         self.environmentKey = environmentKey
@@ -25,7 +26,7 @@ public class SpreedlyAPIClient {
     }
 
     func createPaymentMethodTokenWithData(data: NSData, completion: SpreedlyAPICompletionBlock) {
-        let url = NSURL(string: "http://core.spreedly.dev/v1/payment_methods.json?environment_key=\(self.environmentKey)")
+        let url = NSURL(string: apiUrl + "\(self.environmentKey)")
 
         let request = NSMutableURLRequest(URL: url!)
         let session = NSURLSession.sharedSession()
