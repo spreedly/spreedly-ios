@@ -46,7 +46,6 @@ public class SpreedlyAPIClient {
                     if let transaction = json["transaction"] as? NSDictionary {
                         if let paymentMethod = transaction["payment_method"] as? NSDictionary {
                             if let theToken = paymentMethod["token"] as? String {
-                                print("Before the completion block")
                                 dispatch_async(dispatch_get_main_queue(), {
                                     completion(token: theToken, response: response, error: nil)
                                 })
