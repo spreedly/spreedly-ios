@@ -11,11 +11,17 @@ import Foundation
 public class SpreedlyAPIClient {
     public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
     
-    let apiUrl = "http://core.spreedly.com/v1/payment_methods.json?environment_key="
     let environmentKey: String
-
-    public init(environmentKey: String) {
+    let apiUrl: String
+    
+    public init(environmentKey: String, apiUrl: String) {
         self.environmentKey = environmentKey
+        self.apiUrl = apiUrl
+    }
+    
+    convenience public init(environmentKey: String) {
+        let apiUrl = "http://core.spreedly.com/v1/payment_methods.json?environment_key="
+        self.init(environmentKey: environmentKey, apiUrl: apiUrl)
     }
     
     public func createPaymentMethodTokenWithCreditCard(creditCard: CreditCard, completion: SpreedlyAPICompletionBlock) {
