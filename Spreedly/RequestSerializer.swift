@@ -41,7 +41,7 @@ public class RequestSerializer {
             dict["address1"] = creditCardAddress1
         }
         
-        if let creditCardAddress2 = creditCard.address1 {
+        if let creditCardAddress2 = creditCard.address2 {
             dict["address2"] = creditCardAddress2
         }
         
@@ -58,11 +58,11 @@ public class RequestSerializer {
         }
         
         if let creditCardCountry = creditCard.country {
-            dict["address1"] = creditCardCountry
+            dict["country"] = creditCardCountry
         }
         
         if let creditCardPhoneNumber = creditCard.phoneNumber {
-            dict["address1"] = creditCardPhoneNumber
+            dict["phone_number"] = creditCardPhoneNumber
         }
         
         let body = [ "payment_method": [ "credit_card": dict ]]
