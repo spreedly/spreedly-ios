@@ -19,9 +19,12 @@ public class SpreedlyAPIClient {
     }
     
     public func createPaymentMethodTokenWithCreditCard(creditCard: CreditCard, completion: SpreedlyAPICompletionBlock) {
-        let formattedRequest = SpreedlyAPIRequestFormatter.format(creditCard)
-        if formattedRequest.error == nil {
-            self.createPaymentMethodTokenWithData(formattedRequest.data!, completion: completion)
+        let serializedRequest = RequestSerializer.serialize(creditCard)
+        
+        if serializedRequest.error == nil {
+            if let data = serializedRequest.data {
+                self.createPaymentMethodTokenWithData(data, completion: completion)
+            }
         }
     }
 
