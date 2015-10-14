@@ -9,6 +9,17 @@
 import Foundation
 
 public class RequestSerializer {
+    public static func serialize(paymentData: NSData) -> (data: NSData?, error: NSError?) {
+        let body = [ "payment_method": [ "apple_pay": paymentData ]]
+        
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(body, options: [])
+            return (data, nil)
+        } catch let serializeError as NSError {
+            print("Error serializing credit card. Error: \(serializeError)")
+            return (nil, serializeError)
+        }
+    }
     
     public static func serialize(creditCard: CreditCard) -> (data: NSData?, error: NSError?) {
         var dict = [String: String]()

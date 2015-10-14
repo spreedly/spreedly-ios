@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import PassKit
+
 
 public class SpreedlyAPIClient {
     public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
@@ -26,6 +28,16 @@ public class SpreedlyAPIClient {
     
     public func createPaymentMethodTokenWithCreditCard(creditCard: CreditCard, completion: SpreedlyAPICompletionBlock) {
         let serializedRequest = RequestSerializer.serialize(creditCard)
+        
+        if serializedRequest.error == nil {
+            if let data = serializedRequest.data {
+                self.createPaymentMethodTokenWithData(data, completion: completion)
+            }
+        }
+    }
+    
+    public func createPaymentMethodTokenWithApplePay(payment: PKPayment, completion: SpreedlyAPICompletionBlock) {
+        let serializedRequest = RequestSerializer.serialize(payment.token.paymentData)
         
         if serializedRequest.error == nil {
             if let data = serializedRequest.data {
