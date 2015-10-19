@@ -10,15 +10,11 @@ import Foundation
 
 public class RequestSerializer {
     public static func serialize(paymentData: NSData) -> (data: NSData?, error: NSError?) {
-        let body = [ "payment_method": [ "apple_pay": paymentData ]]
+        let paymentDataJSON = NSString(data: paymentData, encoding: NSUTF8StringEncoding)!
+        let body = "{ \"payment_method\": { \"apple_pay\": { \"payment_data\": \(paymentDataJSON) }}}"
         
-        do {
-            let data = try NSJSONSerialization.dataWithJSONObject(body, options: [])
-            return (data, nil)
-        } catch let serializeError as NSError {
-            print("Error serializing credit card. Error: \(serializeError)")
-            return (nil, serializeError)
-        }
+        let data = body.dataUsingEncoding(NSUTF8StringEncoding)
+        return(data, nil)
     }
     
     public static func serialize(creditCard: CreditCard) -> (data: NSData?, error: NSError?) {
