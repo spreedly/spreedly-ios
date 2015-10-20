@@ -12,8 +12,8 @@ import PassKit
 public class SpreedlyAPIClient {
     public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
     
-    let environmentKey: String
-    let apiUrl: String
+    public var environmentKey: String
+    public var apiUrl: String
     
     public init(environmentKey: String, apiUrl: String) {
         self.environmentKey = environmentKey
@@ -21,7 +21,7 @@ public class SpreedlyAPIClient {
     }
     
     convenience public init(environmentKey: String) {
-        let apiUrl = "http://core.spreedly.com/v1/payment_methods.json?environment_key="
+        let apiUrl = "http://core.spreedly.com/v1/payment_methods.json"
         self.init(environmentKey: environmentKey, apiUrl: apiUrl)
     }
     
@@ -46,7 +46,7 @@ public class SpreedlyAPIClient {
     }
 
     func createPaymentMethodTokenWithData(data: NSData, completion: SpreedlyAPICompletionBlock) {
-        let url = NSURL(string: apiUrl + "\(self.environmentKey)")
+        let url = NSURL(string: apiUrl + "?environment_key=\(self.environmentKey)")
 
         let request = NSMutableURLRequest(URL: url!)
         let session = NSURLSession.sharedSession()
@@ -66,9 +66,9 @@ public class SpreedlyAPIClient {
                 if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                     if let transaction = json["transaction"] as? NSDictionary {
                         if let paymentMethod = transaction["payment_method"] as? NSDictionary {
-                            if let theToken = paymentMethod["token"] as? String {
+                            if let token = paymentMethod["token"] as? String {
                                 dispatch_async(dispatch_get_main_queue(), {
-                                    completion(token: theToken, response: response, error: nil)
+                                    completion(token: token, response: response, error: nil)
                                 })
                             }
                         }
