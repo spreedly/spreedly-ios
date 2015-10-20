@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Spreedly
+import Spreedly
 
 class SpreedlyTests: XCTestCase {
     

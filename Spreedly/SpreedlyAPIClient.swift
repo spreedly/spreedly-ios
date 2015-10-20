@@ -9,7 +9,6 @@
 import Foundation
 import PassKit
 
-
 public class SpreedlyAPIClient {
     public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
     

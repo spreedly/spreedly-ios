@@ -8,12 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for Spreedly.
 FOUNDATION_EXPORT double SpreedlyVersionNumber;
-
-//! Project version string for Spreedly.
 FOUNDATION_EXPORT const unsigned char SpreedlyVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <Spreedly/PublicHeader.h>
-
-
