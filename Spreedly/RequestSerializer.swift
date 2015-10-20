@@ -9,12 +9,10 @@
 import Foundation
 
 public class RequestSerializer {
-    public static func serialize(paymentData: NSData) -> (data: NSData?, error: NSError?) {
+    public static func serialize(paymentData: NSData) -> (NSData) {
         let paymentDataJSON = NSString(data: paymentData, encoding: NSUTF8StringEncoding)!
         let body = "{ \"payment_method\": { \"apple_pay\": { \"payment_data\": \(paymentDataJSON) }}}"
-        
-        let data = body.dataUsingEncoding(NSUTF8StringEncoding)
-        return(data, nil)
+        return(body.dataUsingEncoding(NSUTF8StringEncoding))!
     }
     
     public static func serialize(creditCard: CreditCard) -> (data: NSData?, error: NSError?) {

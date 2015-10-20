@@ -36,13 +36,7 @@ public class SpreedlyAPIClient {
     }
     
     public func createPaymentMethodTokenWithApplePay(payment: PKPayment, completion: SpreedlyAPICompletionBlock) {
-        let serializedRequest = RequestSerializer.serialize(payment.token.paymentData)
-        
-        if serializedRequest.error == nil {
-            if let data = serializedRequest.data {
-                self.createPaymentMethodTokenWithData(data, completion: completion)
-            }
-        }
+        self.createPaymentMethodTokenWithData(RequestSerializer.serialize(payment.token.paymentData), completion: completion)
     }
 
     func createPaymentMethodTokenWithData(data: NSData, completion: SpreedlyAPICompletionBlock) {
