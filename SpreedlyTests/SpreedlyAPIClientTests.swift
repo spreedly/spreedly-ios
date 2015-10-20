@@ -9,7 +9,7 @@
 import XCTest
 import Spreedly
 
-class SpreedlyTests: XCTestCase {
+class SpreedlyAPIClientTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
