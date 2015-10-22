@@ -10,7 +10,7 @@ import Foundation
 import PassKit
 
 public class SpreedlyAPIClient {
-    public typealias SpreedlyAPICompletionBlock = (token: String?, response: NSURLResponse?, error: NSError?) -> Void
+    public typealias SpreedlyAPICompletionBlock = (paymentMethod: PaymentMethod?, response: NSURLResponse?, error: NSError?) -> Void
     
     public var environmentKey: String
     public var apiUrl: String
@@ -55,21 +55,22 @@ public class SpreedlyAPIClient {
                 print("No data returned. Error: \(error)")
                 return
             }
-
+            
             do {
                 if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    if let transaction = json["transaction"] as? NSDictionary {
-                        if let paymentMethod = transaction["payment_method"] as? NSDictionary {
-                            if let token = paymentMethod["token"] as? String {
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completion(token: token, response: response, error: nil)
-                                })
+                    if let transactionDict = json["transaction"] as? NSDictionary {
+                        if transactionDict["succeeded"] as! Bool {
+                            if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
+                                let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
+                                completion(paymentMethod: paymentMethod, response: response, error: nil)
                             }
+                        } else {
+                            completion(paymentMethod: nil, response: response, error: NSError)
                         }
                     }
                 }
             } catch let parseError as NSError {
-                completion(token: nil, response: response, error: parseError)
+                completion(paymentMethod: nil, response: response, error: parseError)
             }
         }
 
