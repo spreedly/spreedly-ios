@@ -12,6 +12,7 @@
 		63579E3E1BD6978F00E0485D /* CreditCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579E3D1BD6978F00E0485D /* CreditCardTests.swift */; settings = {ASSET_TAGS = (); }; };
 		63579E401BD697BC00E0485D /* RequestSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579E3F1BD697BC00E0485D /* RequestSerializerTests.swift */; settings = {ASSET_TAGS = (); }; };
 		635843D91BD9269F006A4F6B /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635843D81BD9269F006A4F6B /* PaymentMethod.swift */; settings = {ASSET_TAGS = (); }; };
+		635843DB1BD9361F006A4F6B /* SpreedlyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635843DA1BD9361F006A4F6B /* SpreedlyError.swift */; settings = {ASSET_TAGS = (); }; };
 		635EB2BB1BC6E06900DCA59B /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EB2BA1BC6E06900DCA59B /* CreditCard.swift */; settings = {ASSET_TAGS = (); }; };
 		63E67F4C1BC6BE4B0023E846 /* Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E67F411BC6BE4B0023E846 /* Spreedly.framework */; settings = {ASSET_TAGS = (); }; };
 		63E67F511BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */; };
@@ -34,6 +35,7 @@
 		63579E3D1BD6978F00E0485D /* CreditCardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardTests.swift; sourceTree = "<group>"; };
 		63579E3F1BD697BC00E0485D /* RequestSerializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSerializerTests.swift; sourceTree = "<group>"; };
 		635843D81BD9269F006A4F6B /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		635843DA1BD9361F006A4F6B /* SpreedlyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreedlyError.swift; sourceTree = "<group>"; };
 		635EB2BA1BC6E06900DCA59B /* CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		63E67F411BC6BE4B0023E846 /* Spreedly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spreedly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E67F461BC6BE4B0023E846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				635EB2BA1BC6E06900DCA59B /* CreditCard.swift */,
 				633740591BC967150091372A /* RequestSerializer.swift */,
 				635843D81BD9269F006A4F6B /* PaymentMethod.swift */,
+				635843DA1BD9361F006A4F6B /* SpreedlyError.swift */,
 				63E67F801BC6C4600023E846 /* Supporting Files */,
 			);
 			path = Spreedly;
@@ -232,6 +235,7 @@
 				635843D91BD9269F006A4F6B /* PaymentMethod.swift in Sources */,
 				635EB2BB1BC6E06900DCA59B /* CreditCard.swift in Sources */,
 				63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,
+				635843DB1BD9361F006A4F6B /* SpreedlyError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

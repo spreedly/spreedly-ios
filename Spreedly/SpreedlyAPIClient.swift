@@ -50,27 +50,28 @@ public class SpreedlyAPIClient {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
-            guard data != nil else {
-                print("No data returned. Error: \(error)")
-                return
-            }
-            
-            do {
-                if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    if let transactionDict = json["transaction"] as? NSDictionary {
-                        if transactionDict["succeeded"] as! Bool {
-                            if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
-                                let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
-                                completion(paymentMethod: paymentMethod, response: response, error: nil)
+        let task = session.dataTaskWithRequest(request) { data, response, requestError -> Void in
+            if requestError != nil {
+                
+            } else {
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        if let transactionDict = json["transaction"] as? NSDictionary {
+                            if transactionDict["succeeded"] as! Bool {
+                                if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
+                                    let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
+                                    completion(paymentMethod: paymentMethod, response: response, error: nil)
+                                }
+                            } else {
+                                let apiMessage = transactionDict["message"]
+                                let txError = NSError(domain: "Spreedly", code: 60, userInfo: ["Description": "\(apiMessage)"])
+                                completion(paymentMethod: nil, response: response, error: txError)
                             }
-                        } else {
-                            completion(paymentMethod: nil, response: response, error: NSError)
                         }
                     }
+                } catch let parseError as NSError {
+                    completion(paymentMethod: nil, response: response, error: parseError)
                 }
-            } catch let parseError as NSError {
-                completion(paymentMethod: nil, response: response, error: parseError)
             }
         }
 
