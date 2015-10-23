@@ -51,22 +51,22 @@ public class SpreedlyAPIClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
-            if (response as! NSHTTPURLResponse).statusCode != 201 {
-                let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: ["Spreedly API": "Error creating Payment Method Token"])
-                completion(paymentMethod: nil, response: response, error: apiError)
+            if (error != nil) {
+                completion(paymentMethod: nil, response: response, error: error)
             } else {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         if let transactionDict = json["transaction"] as? NSDictionary {
-                            if transactionDict["succeeded"] as! Bool {
-                                if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
-                                    let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
-                                    completion(paymentMethod: paymentMethod, response: response, error: nil)
-                                }
-                            } else {
-                                let apiTxError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: ["Spreedly API": "Error creating Payment Method Token"])
-                                completion(paymentMethod: nil, response: response, error: apiTxError)
+                            if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
+                                let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
+                                completion(paymentMethod: paymentMethod, response: response, error: nil)
                             }
+                        } else {
+                            // Eventually, we'll want to loop through the errors and send back those with
+                            // if let errorsDict = json["errors"] as? NSDictionary
+                            let userInfo = ["ProcessingError": "Unable to create payment method token with values sent"]
+                            let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
+                            completion(paymentMethod: nil, response: response, error: apiError)
                         }
                     }
                 } catch let parseError as NSError {
