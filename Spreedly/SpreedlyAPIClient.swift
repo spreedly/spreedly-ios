@@ -10,7 +10,7 @@ import Foundation
 import PassKit
 
 public class SpreedlyAPIClient {
-    public typealias SpreedlyAPICompletionBlock = (paymentMethod: PaymentMethod?, response: NSURLResponse?, error: NSError?) -> Void
+    public typealias SpreedlyAPICompletionBlock = (paymentMethod: PaymentMethod?, error: NSError?) -> Void
     
     public var environmentKey: String
     public var apiUrl: String
@@ -52,25 +52,25 @@ public class SpreedlyAPIClient {
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             if (error != nil) {
-                completion(paymentMethod: nil, response: response, error: error)
+                completion(paymentMethod: nil, error: error)
             } else {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         if let transactionDict = json["transaction"] as? NSDictionary {
                             if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
                                 let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
-                                completion(paymentMethod: paymentMethod, response: response, error: nil)
+                                completion(paymentMethod: paymentMethod, error: nil)
                             }
                         } else {
                             // Eventually, we'll want to loop through the errors and send back those with
                             // if let errorsDict = json["errors"] as? NSDictionary
                             let userInfo = ["ProcessingError": "Unable to create payment method token with values sent"]
                             let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
-                            completion(paymentMethod: nil, response: response, error: apiError)
+                            completion(paymentMethod: nil, error: apiError)
                         }
                     }
                 } catch let parseError as NSError {
-                    completion(paymentMethod: nil, response: response, error: parseError)
+                    completion(paymentMethod: nil, error: parseError)
                 }
             }
         }
