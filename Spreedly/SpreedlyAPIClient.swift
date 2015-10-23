@@ -50,9 +50,10 @@ public class SpreedlyAPIClient {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = session.dataTaskWithRequest(request) { data, response, requestError -> Void in
-            if requestError != nil {
-                
+        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+            if (response as! NSHTTPURLResponse).statusCode != 201 {
+                let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: ["Spreedly API": "Error creating Payment Method Token"])
+                completion(paymentMethod: nil, response: response, error: apiError)
             } else {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
@@ -63,9 +64,8 @@ public class SpreedlyAPIClient {
                                     completion(paymentMethod: paymentMethod, response: response, error: nil)
                                 }
                             } else {
-                                let apiMessage = transactionDict["message"]
-                                let txError = NSError(domain: "Spreedly", code: 60, userInfo: ["Description": "\(apiMessage)"])
-                                completion(paymentMethod: nil, response: response, error: txError)
+                                let apiTxError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: ["Spreedly API": "Error creating Payment Method Token"])
+                                completion(paymentMethod: nil, response: response, error: apiTxError)
                             }
                         }
                     }
@@ -74,7 +74,7 @@ public class SpreedlyAPIClient {
                 }
             }
         }
-
+        
         task.resume()
     }
 }
