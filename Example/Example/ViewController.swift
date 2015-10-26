@@ -27,19 +27,25 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
     @IBAction func handleApplePayTapped(sender: AnyObject) {
         let paymentRequest = PKPaymentRequest()
         paymentRequest.merchantIdentifier = appleMerchantId
-        paymentRequest.supportedNetworks = [PKPaymentNetworkVisa]
+        paymentRequest.supportedNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkAmex, PKPaymentNetworkMasterCard]
         paymentRequest.merchantCapabilities = PKMerchantCapability.Capability3DS
         paymentRequest.countryCode = "US"
         paymentRequest.currencyCode = "USD"
         
-        paymentRequest.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "Snuggie", amount: NSDecimalNumber(string: "20.00")),
-            PKPaymentSummaryItem(label: "Super Snuggles Inc.", amount: NSDecimalNumber(string: "20.00"))
-        ]
-        
-        let paymentAuthVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
-        paymentAuthVC.delegate = self
-        presentViewController(paymentAuthVC, animated: true, completion: nil)
+        if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(paymentRequest.supportedNetworks) {
+            paymentRequest.paymentSummaryItems = [
+                PKPaymentSummaryItem(label: "Snuggie", amount: NSDecimalNumber(string: "20.00")),
+                PKPaymentSummaryItem(label: "Super Snuggles Inc.", amount: NSDecimalNumber(string: "20.00"))
+            ]
+            
+            let paymentAuthVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
+            paymentAuthVC.delegate = self
+            presentViewController(paymentAuthVC, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Apple Pay not supported on this device", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion:((PKPaymentAuthorizationStatus) -> Void)) {
