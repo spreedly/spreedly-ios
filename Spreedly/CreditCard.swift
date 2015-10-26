@@ -14,12 +14,23 @@ public class CreditCard {
     
     public init() {}
     
+    public func isValid() -> Bool {
+        if (number != nil &&
+            verificationValue != nil &&
+            month != nil &&
+            year != nil) {
+                return(true)
+        } else {
+            return(false)
+        }
+    }
+    
     public static func extractMonth(expiration: String) -> String {
-        return(self.splitExpirationString(expiration).first)!
+        return(self.splitExpirationString(expiration).first!)
     }
     
     public static func extractYear(expiration: String) -> String {
-        return(self.splitExpirationString(expiration).last)!
+        return("20" + self.splitExpirationString(expiration).last!)
     }
     
     static func splitExpirationString(expiration: String) -> [String] {
