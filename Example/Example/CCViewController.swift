@@ -32,8 +32,6 @@ class CCViewController: UIViewController {
     }
 
     @IBAction func handleBuyNowTapped(sender: AnyObject) {
-        self.purchaseActivityIndicator.startAnimating()
-        
         let creditCard = CreditCard()
         creditCard.firstName = self.cardFirstName.text!
         creditCard.lastName = self.cardLastName.text!
