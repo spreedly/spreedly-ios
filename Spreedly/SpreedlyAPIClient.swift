@@ -21,7 +21,7 @@ public class SpreedlyAPIClient {
     }
     
     convenience public init(environmentKey: String) {
-        let apiUrl = "http://core.spreedly.com/v1/payment_methods.json"
+        let apiUrl = "https://core.spreedly.com/v1/payment_methods.json"
         self.init(environmentKey: environmentKey, apiUrl: apiUrl)
     }
     
