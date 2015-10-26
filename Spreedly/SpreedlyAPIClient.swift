@@ -49,6 +49,7 @@ public class SpreedlyAPIClient {
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("spreedly-ios-lib/0.1.0", forHTTPHeaderField: "User-Agent")
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             if (error != nil) {
