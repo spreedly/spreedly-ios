@@ -15,7 +15,9 @@ public class CreditCard {
     public init() {}
     
     public func isValid() -> Bool {
-        if (number != nil &&
+        if (firstName != nil &&
+            lastName != nil &&
+            number != nil &&
             verificationValue != nil &&
             month != nil &&
             year != nil) {
