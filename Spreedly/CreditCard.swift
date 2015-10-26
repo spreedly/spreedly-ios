@@ -13,4 +13,17 @@ public class CreditCard {
     public var address1, address2, city, state, zip, country, phoneNumber: String?
     
     public init() {}
+    
+    public static func extractMonth(expiration: String) -> String {
+        return(self.splitExpirationString(expiration).first)!
+    }
+    
+    public static func extractYear(expiration: String) -> String {
+        return(self.splitExpirationString(expiration).last)!
+    }
+    
+    static func splitExpirationString(expiration: String) -> [String] {
+        let expirationArray = expiration.componentsSeparatedByString("/")
+        return expirationArray
+    }
 }
