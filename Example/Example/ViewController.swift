@@ -43,7 +43,24 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
     }
     
     func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion:((PKPaymentAuthorizationStatus) -> Void)) {
-        completion(PKPaymentAuthorizationStatus.Success)
+
+        let client = SpreedlyAPIClient(environmentKey: environmentKey)
+        client.createPaymentMethodTokenWithApplePay(payment) { paymentMethod, error -> Void in
+            if error != nil {
+                completion(PKPaymentAuthorizationStatus.Failure)
+            }
+            else {
+                if let token = paymentMethod!.token {
+                    // On success, you can now send a request to your backend to finish the charge
+                    // via an authenticated API call. Just pass the payment method token you recieved
+                    // if all of that goes well, you can now pass success to the completion to
+                    // close the Apple Pay pop over
+                    print(token)
+                    
+                    completion(PKPaymentAuthorizationStatus.Success)
+                }
+            }
+        }
     }
     
     func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
