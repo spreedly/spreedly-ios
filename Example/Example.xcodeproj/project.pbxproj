@@ -10,6 +10,7 @@
 		634C6E0D1BDD6CDD0044ECCC /* CCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C6E0C1BDD6CDD0044ECCC /* CCViewController.swift */; };
 		6380CBCC1BDE87720065872C /* Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6380CBCB1BDE87720065872C /* Spreedly.framework */; };
 		6380CBCD1BDE877D0065872C /* Spreedly.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6380CBCB1BDE87720065872C /* Spreedly.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6380CBD11BDEB06A0065872C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380CBD01BDEB06A0065872C /* Constants.swift */; };
 		63878EB01BDE606A00C16E6C /* CCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63878EAF1BDE606A00C16E6C /* CCTextField.swift */; };
 		63E67F681BC6BE9C0023E846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F671BC6BE9C0023E846 /* AppDelegate.swift */; };
 		63E67F6A1BC6BE9C0023E846 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F691BC6BE9C0023E846 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		634C6E0C1BDD6CDD0044ECCC /* CCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCViewController.swift; sourceTree = "<group>"; };
 		6380CBCB1BDE87720065872C /* Spreedly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spreedly.framework; path = "../build/Debug-iphoneos/Spreedly.framework"; sourceTree = "<group>"; };
+		6380CBD01BDEB06A0065872C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63878EAF1BDE606A00C16E6C /* CCTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTextField.swift; sourceTree = "<group>"; };
 		63E67F641BC6BE9C0023E846 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E67F671BC6BE9C0023E846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		63E67F661BC6BE9C0023E846 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				6380CBD01BDEB06A0065872C /* Constants.swift */,
 				63E67F671BC6BE9C0023E846 /* AppDelegate.swift */,
 				63E67F691BC6BE9C0023E846 /* ViewController.swift */,
 				634C6E0C1BDD6CDD0044ECCC /* CCViewController.swift */,
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6380CBD11BDEB06A0065872C /* Constants.swift in Sources */,
 				63E67F6A1BC6BE9C0023E846 /* ViewController.swift in Sources */,
 				63E67F681BC6BE9C0023E846 /* AppDelegate.swift in Sources */,
 				634C6E0D1BDD6CDD0044ECCC /* CCViewController.swift in Sources */,

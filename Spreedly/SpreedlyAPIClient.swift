@@ -63,11 +63,11 @@ public class SpreedlyAPIClient {
                                 dispatch_async(dispatch_get_main_queue(), {
                                     completion(paymentMethod: paymentMethod, error: nil)
                                 })
-                                
                             }
                         } else {
                             // Eventually, we'll want to loop through the errors and send back those with
                             // if let errorsDict = json["errors"] as? NSDictionary
+                            print(json)
                             let userInfo = ["ProcessingError": "Unable to create payment method token with values sent"]
                             let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
                             dispatch_async(dispatch_get_main_queue(), {

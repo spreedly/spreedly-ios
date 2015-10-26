@@ -232,6 +232,13 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-y8-gA8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="bsI-XF-kqS" kind="unwind" unwindAction="unwindToRoot:" id="wan-f7-hmi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94099195075757569" green="0.94099195075757569" blue="0.94099195075757569" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -242,9 +249,11 @@
                             <constraint firstItem="ARH-i1-yvd" firstAttribute="leading" secondItem="9b7-Dd-Wb0" secondAttribute="leadingMargin" constant="-20" id="8ha-Nx-Ber"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7yU-wm-raJ" secondAttribute="trailing" constant="-20" id="Aes-Vn-ekL"/>
                             <constraint firstItem="7yU-wm-raJ" firstAttribute="top" secondItem="HEp-y5-6Vd" secondAttribute="bottom" constant="1" id="CaC-7Y-CoH"/>
+                            <constraint firstItem="Cpo-y8-gA8" firstAttribute="top" secondItem="23s-pw-niv" secondAttribute="bottom" constant="8" id="DGg-UB-xFG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wYY-UX-MoB" secondAttribute="trailing" constant="-20" id="EAU-3x-q06"/>
                             <constraint firstItem="wYY-UX-MoB" firstAttribute="top" secondItem="PB2-p8-fzw" secondAttribute="bottom" constant="1" id="G6I-xk-cwQ"/>
                             <constraint firstItem="ARH-i1-yvd" firstAttribute="top" secondItem="wYY-UX-MoB" secondAttribute="bottom" constant="40" id="M5z-NQ-FVN"/>
+                            <constraint firstItem="Cpo-y8-gA8" firstAttribute="trailing" secondItem="9b7-Dd-Wb0" secondAttribute="trailingMargin" id="Nes-lU-Hpz"/>
                             <constraint firstItem="tp5-VC-0RG" firstAttribute="top" secondItem="23s-pw-niv" secondAttribute="bottom" constant="51" id="QQr-Ob-cNj"/>
                             <constraint firstItem="HEp-y5-6Vd" firstAttribute="leading" secondItem="9b7-Dd-Wb0" secondAttribute="leadingMargin" constant="-20" id="Y4U-mA-VnR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PB2-p8-fzw" secondAttribute="trailing" constant="-20" id="alu-jY-v6B"/>
@@ -262,6 +271,7 @@
                                 <exclude reference="PB2-p8-fzw"/>
                                 <exclude reference="HEp-y5-6Vd"/>
                                 <exclude reference="tp5-VC-0RG"/>
+                                <exclude reference="Cpo-y8-gA8"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="17r-4b-9Ax"/>
@@ -279,6 +289,8 @@
                                 <exclude reference="0c6-7p-Qba"/>
                                 <exclude reference="EAU-3x-q06"/>
                                 <exclude reference="G6I-xk-cwQ"/>
+                                <exclude reference="DGg-UB-xFG"/>
+                                <exclude reference="Nes-lU-Hpz"/>
                                 <exclude reference="8ha-Nx-Ber"/>
                                 <exclude reference="M5z-NQ-FVN"/>
                                 <exclude reference="eMD-bw-drd"/>
@@ -292,6 +304,7 @@
                                 <include reference="PB2-p8-fzw"/>
                                 <include reference="HEp-y5-6Vd"/>
                                 <include reference="tp5-VC-0RG"/>
+                                <include reference="Cpo-y8-gA8"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="17r-4b-9Ax"/>
@@ -309,6 +322,8 @@
                                 <include reference="0c6-7p-Qba"/>
                                 <include reference="EAU-3x-q06"/>
                                 <include reference="G6I-xk-cwQ"/>
+                                <include reference="DGg-UB-xFG"/>
+                                <include reference="Nes-lU-Hpz"/>
                                 <include reference="8ha-Nx-Ber"/>
                                 <include reference="M5z-NQ-FVN"/>
                                 <include reference="eMD-bw-drd"/>
@@ -324,6 +339,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXH-Av-6qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bsI-XF-kqS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1207.5" y="337"/>
         </scene>

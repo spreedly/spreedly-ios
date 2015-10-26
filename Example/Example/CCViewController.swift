@@ -11,10 +11,6 @@ import Spreedly
 
 class CCViewController: UIViewController {
     
-    let environmentKey = ""
-    let backendChargeURL = "http://localhost:3001"
-    let appleMerchantId = "merchant.com.you-company.testing"
-    
     @IBOutlet weak var cardFirstName: CCTextField!
     @IBOutlet weak var cardLastName: CCTextField!
     @IBOutlet weak var cardNumber: CCTextField!
