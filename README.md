@@ -5,11 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/Spreedly.svg?style=flat)](http://cocoapods.org/pods/Spreedly)
 [![Platform](https://img.shields.io/cocoapods/p/Spreedly.svg?style=flat)](http://cocoapods.org/pods/Spreedly)
 
+## Requirements
+
+Our SDK is compatible with iOS apps supporting iOS 8.0 and above and requires Xcode 7.0+ to build the source.
+
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+There is an example app included in the respository. To try it out, clone the repo and run the `Example` app. It includes creating a payment method token from a custom credit card form as well as from an Apple Pay payment authorization.
 
 ## Installation
 
