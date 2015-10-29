@@ -32,8 +32,8 @@ class CCViewController: UIViewController {
         creditCard.firstName = self.cardFirstName.text!
         creditCard.lastName = self.cardLastName.text!
         creditCard.number = self.cardNumber.text!
-        creditCard.month = CreditCard.extractMonth(self.cardExpiration.text!)
-        creditCard.year = CreditCard.extractYear(self.cardExpiration.text!)
+        creditCard.month = extractMonth(self.cardExpiration.text!)
+        creditCard.year = extractYear(self.cardExpiration.text!)
         creditCard.verificationValue = self.cardVerificationValue.text!
         
         if creditCard.isValid() {
@@ -58,5 +58,19 @@ class CCViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    func extractMonth(expiration: String) -> String {
+        return(splitExpirationString(expiration).first!)
+    }
+    
+    func extractYear(expiration: String) -> String {
+        return("20" + splitExpirationString(expiration).last!)
+    }
+    
+    func splitExpirationString(expiration: String) -> [String] {
+        let expirationArray = expiration.componentsSeparatedByString("/")
+        return expirationArray
     }
 }

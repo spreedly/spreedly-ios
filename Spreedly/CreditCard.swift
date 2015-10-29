@@ -26,17 +26,4 @@ public class CreditCard {
             return(false)
         }
     }
-    
-    public static func extractMonth(expiration: String) -> String {
-        return(self.splitExpirationString(expiration).first!)
-    }
-    
-    public static func extractYear(expiration: String) -> String {
-        return("20" + self.splitExpirationString(expiration).last!)
-    }
-    
-    static func splitExpirationString(expiration: String) -> [String] {
-        let expirationArray = expiration.componentsSeparatedByString("/")
-        return expirationArray
-    }
 }
