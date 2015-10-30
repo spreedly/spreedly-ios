@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PaymentMethod {
+public class PaymentMethod: NSObject {
     public var token, paymentMethodType, storageState, firstName, lastName, fullName: String?
     public var cardType, lastFourDigits, firstSixDigits, address1, address2, city, state, zip: String?
     public var country, phoneNumber, shippingAddress1, shippingAddress2, shippingCity: String?

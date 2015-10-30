@@ -9,7 +9,7 @@
 import Foundation
 import PassKit
 
-public class SpreedlyAPIClient {
+public class SpreedlyAPIClient: NSObject {
     public typealias SpreedlyAPICompletionBlock = (paymentMethod: PaymentMethod?, error: NSError?) -> Void
     
     public var environmentKey: String

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class CreditCard {
+public class CreditCard: NSObject {
     public var firstName, lastName, number, verificationValue, month, year: String?
     public var address1, address2, city, state, zip, country, phoneNumber: String?
     
-    public init() {}
+    public override init() {}
     
     public func isValid() -> Bool {
         if (firstName != nil &&
