@@ -13,17 +13,4 @@ public class CreditCard: NSObject {
     public var address1, address2, city, state, zip, country, phoneNumber: String?
     
     public override init() {}
-    
-    public func isValid() -> Bool {
-        if (firstName != nil &&
-            lastName != nil &&
-            number != nil &&
-            verificationValue != nil &&
-            month != nil &&
-            year != nil) {
-                return(true)
-        } else {
-            return(false)
-        }
-    }
 }
