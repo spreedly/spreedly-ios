@@ -36,21 +36,17 @@ class CCViewController: UIViewController {
         creditCard.year = extractYear(self.cardExpiration.text!)
         creditCard.verificationValue = self.cardVerificationValue.text!
         
-        if creditCard.isValid() {
-            let client = SpreedlyAPIClient(environmentKey: environmentKey)
-            client.createPaymentMethodTokenWithCreditCard(creditCard) { paymentMethod, error -> Void in
-                if error != nil {
-                    print(error)
-                    self.showAlertView("Error", message: "Unable to create token from credit card")
-                } else {
-                    self.showAlertView("Success", message: "Token: \(paymentMethod!.token!)")
-                    
-                    // On success, you can now send a request to your backend to finish the charge
-                    // via an authenticated API call. Just pass the payment method token you recieved
-                }
+        let client = SpreedlyAPIClient(environmentKey: environmentKey)
+        client.createPaymentMethodTokenWithCreditCard(creditCard) { paymentMethod, error -> Void in
+            if error != nil {
+                print(error)
+                self.showAlertView("Error", message: "Unable to create token from credit card")
+            } else {
+                self.showAlertView("Success", message: "Token: \(paymentMethod!.token!)")
+                
+                // On success, you can now send a request to your backend to finish the charge
+                // via an authenticated API call. Just pass the payment method token you recieved
             }
-        } else {
-            showAlertView("Invalid Credit Card", message: "The credit card entered was invalid")
         }
     }
     
