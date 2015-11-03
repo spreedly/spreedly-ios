@@ -17,6 +17,8 @@ There is an example app included in the respository. To try it out, clone the re
 
 If you're planning on using Apple Pay, be sure to checkout the [Apple developer docs](https://developer.apple.com/apple-pay/) to get your app ready to accept Apple Pay payment information and the [Spreedly Apple Pay guide](https://docs.spreedly.com/guides/apple-pay/) to setup your backend.
 
+More documentation and a guide to using the library can be found on the [Spreedly docs](https://docs.spreedly.com/guides/mobile/ios).
+
 ## Installation
 
 Spreedly is available through [CocoaPods](http://cocoapods.org). To install
