@@ -40,7 +40,7 @@ class CCViewController: UIViewController {
         client.createPaymentMethodTokenWithCreditCard(creditCard) { paymentMethod, error -> Void in
             if error != nil {
                 print(error)
-                self.showAlertView("Error", message: "Unable to create token from credit card")
+                self.showAlertView("Error", message: error!.description)
             } else {
                 self.showAlertView("Success", message: "Token: \(paymentMethod!.token!)")
                 

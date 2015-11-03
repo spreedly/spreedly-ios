@@ -53,7 +53,9 @@ public class SpreedlyAPIClient: NSObject {
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             if (error != nil) {
-                completion(paymentMethod: nil, error: error)
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(paymentMethod: nil, error: error)
+                })
             } else {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
@@ -65,18 +67,20 @@ public class SpreedlyAPIClient: NSObject {
                                 })
                             }
                         } else {
-                            // Eventually, we'll want to loop through the errors and send back those with
-                            // if let errorsDict = json["errors"] as? NSDictionary
-                            print(json)
-                            let userInfo = ["ProcessingError": "Unable to create payment method token with values sent"]
-                            let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
-                            dispatch_async(dispatch_get_main_queue(), {
-                                completion(paymentMethod: nil, error: apiError)
-                            })
+                            if let errors = json["errors"] as? NSArray {
+                                let error = errors[0] as! NSDictionary
+                                let userInfo = ["SpreedlyError": error["message"]!]
+                                let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completion(paymentMethod: nil, error: apiError)
+                                })
+                            }
                         }
                     }
                 } catch let parseError as NSError {
-                    completion(paymentMethod: nil, error: parseError)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completion(paymentMethod: nil, error: parseError)
+                    })
                 }
             }
         }
