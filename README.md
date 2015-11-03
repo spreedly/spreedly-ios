@@ -41,6 +41,12 @@ If you're integrating into an existing Objective-C app, be sure to add the heade
 #import "Spreedly-Swift.h"
 ```
 
+## Running Tests
+
+1. Open Spreedly.xcworkspace
+1. Choose the "Spreedly" scheme
+1. Run Product -> Test
+
 ## Author
 
 David Santoso, david@spreedly.com
