@@ -9,7 +9,7 @@ If you’re building an iOS app and want to accept payments, the Spreedly iOS li
 
 ## Requirements
 
-Our SDK is compatible with iOS apps supporting iOS 8.0 and above and requires Xcode 7.0+ to build the source.
+Our SDK is compatible with iOS apps supporting iOS 9.0 and above and requires Xcode 8.0+ to build the source.
 
 ## Usage
 

@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class RequestSerializer {
-    public static func serialize(paymentData: NSData) -> (NSData) {
-        let paymentDataJSON = NSString(data: paymentData, encoding: NSUTF8StringEncoding)!
+open class RequestSerializer {
+    open static func serialize(_ paymentData: Data) -> (Data) {
+        let paymentDataJSON = NSString(data: paymentData, encoding: String.Encoding.utf8.rawValue)!
         let body = "{ \"payment_method\": { \"apple_pay\": { \"payment_data\": \(paymentDataJSON) }}}"
-        return(body.dataUsingEncoding(NSUTF8StringEncoding))!
+        return(body.data(using: String.Encoding.utf8))!
     }
     
-    public static func serialize(creditCard: CreditCard) -> (data: NSData?, error: NSError?) {
+    open static func serialize(_ creditCard: CreditCard) -> (data: Data?, error: NSError?) {
         var dict = [String: String]()
         
         if let creditCardFirstName = creditCard.firstName {
@@ -73,7 +73,7 @@ public class RequestSerializer {
         let body = [ "payment_method": [ "credit_card": dict ]]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(body, options: [])
+            let data = try JSONSerialization.data(withJSONObject: body, options: [])
             return (data, nil)
         } catch let serializeError as NSError {
             return (nil, serializeError)

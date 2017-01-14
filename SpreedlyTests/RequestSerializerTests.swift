@@ -25,8 +25,8 @@ class RequestSerializerTests: XCTestCase {
 
     func testSerializesApplePayPaymentData() {
         let requestJSON = "{ \"payment_method\": { \"apple_pay\": { \"payment_data\": \(paymentDataBlob!) }}}"
-        let expectation = requestJSON.dataUsingEncoding(NSUTF8StringEncoding)
-        let serializedRequest = RequestSerializer.serialize(paymentDataBlob!.dataUsingEncoding(NSUTF8StringEncoding)!)
+        let expectation = requestJSON.data(using: String.Encoding.utf8)
+        let serializedRequest = RequestSerializer.serialize(paymentDataBlob!.data(using: String.Encoding.utf8.rawValue)!)
         
         XCTAssertEqual(serializedRequest, expectation, "Payment data was not correctly serialized")
     }
@@ -42,7 +42,7 @@ class RequestSerializerTests: XCTestCase {
                 ]
             ]
         ]
-        let expectation = (try? NSJSONSerialization.dataWithJSONObject(requestDict, options: []))!
+        let expectation = (try? JSONSerialization.data(withJSONObject: requestDict, options: []))!
         
         let card = CreditCard()
         card.number = "4111111111111111"

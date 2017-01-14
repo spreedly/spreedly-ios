@@ -12,7 +12,7 @@ import Spreedly
 
 class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
 
-    @IBAction func unwindToRoot (segue: UIStoryboardSegue?) { }
+    @IBAction func unwindToRoot (_ segue: UIStoryboardSegue?) { }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +24,15 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func handleApplePayTapped(sender: AnyObject) {
+    @IBAction func handleApplePayTapped(_ sender: AnyObject) {
         let paymentRequest = PKPaymentRequest()
         paymentRequest.merchantIdentifier = appleMerchantId
-        paymentRequest.supportedNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkAmex, PKPaymentNetworkMasterCard]
-        paymentRequest.merchantCapabilities = PKMerchantCapability.Capability3DS
+        paymentRequest.supportedNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.amex, PKPaymentNetwork.masterCard]
+        paymentRequest.merchantCapabilities = PKMerchantCapability.capability3DS
         paymentRequest.countryCode = "US"
         paymentRequest.currencyCode = "USD"
         
-        if PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(paymentRequest.supportedNetworks) {
+        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentRequest.supportedNetworks) {
             paymentRequest.paymentSummaryItems = [
                 PKPaymentSummaryItem(label: "Snuggie", amount: NSDecimalNumber(string: "20.00")),
                 PKPaymentSummaryItem(label: "Super Snuggles Inc.", amount: NSDecimalNumber(string: "20.00"))
@@ -40,20 +40,20 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
             
             let paymentAuthVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
             paymentAuthVC.delegate = self
-            presentViewController(paymentAuthVC, animated: true, completion: nil)
+            present(paymentAuthVC, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Error", message: "Apple Pay not supported on this device", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Error", message: "Apple Pay not supported on this device", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion:((PKPaymentAuthorizationStatus) -> Void)) {
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion:(@escaping (PKPaymentAuthorizationStatus) -> Void)) {
 
         let client = SpreedlyAPIClient(environmentKey: environmentKey)
         client.createPaymentMethodTokenWithApplePay(payment) { paymentMethod, error -> Void in
             if error != nil {
-                completion(PKPaymentAuthorizationStatus.Failure)
+                completion(PKPaymentAuthorizationStatus.failure)
             }
             else {
                 if let token = paymentMethod!.token {
@@ -63,14 +63,14 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
                     // close the Apple Pay pop over
                     print(token)
                     
-                    completion(PKPaymentAuthorizationStatus.Success)
+                    completion(PKPaymentAuthorizationStatus.success)
                 }
             }
         }
     }
     
-    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class PaymentMethod: NSObject {
-    public var token, paymentMethodType, storageState, firstName, lastName, fullName: String?
-    public var cardType, lastFourDigits, firstSixDigits, address1, address2, city, state, zip: String?
-    public var country, phoneNumber, shippingAddress1, shippingAddress2, shippingCity: String?
-    public var shippingState, shippingZip, shippingCountry, shippingPhoneNumber: String?
-    public var verificationValue, number: String?
-    public var month, year: Int?
+open class PaymentMethod: NSObject {
+    open var token, paymentMethodType, storageState, firstName, lastName, fullName: String?
+    open var cardType, lastFourDigits, firstSixDigits, address1, address2, city, state, zip: String?
+    open var country, phoneNumber, shippingAddress1, shippingAddress2, shippingCity: String?
+    open var shippingState, shippingZip, shippingCountry, shippingPhoneNumber: String?
+    open var verificationValue, number: String?
+    open var month, year: Int?
     
     convenience init(attributes: [String: AnyObject]) {
         self.init()

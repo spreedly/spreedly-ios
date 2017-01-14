@@ -9,11 +9,11 @@
 import Foundation
 import PassKit
 
-public class SpreedlyAPIClient: NSObject {
-    public typealias SpreedlyAPICompletionBlock = (paymentMethod: PaymentMethod?, error: NSError?) -> Void
+open class SpreedlyAPIClient: NSObject {
+    public typealias SpreedlyAPICompletionBlock = (_ paymentMethod: PaymentMethod?, _ error: NSError?) -> Void
     
-    public var environmentKey: String
-    public var apiUrl: String
+    open var environmentKey: String
+    open var apiUrl: String
     
     public init(environmentKey: String, apiUrl: String) {
         self.environmentKey = environmentKey
@@ -25,7 +25,7 @@ public class SpreedlyAPIClient: NSObject {
         self.init(environmentKey: environmentKey, apiUrl: apiUrl)
     }
     
-    public func createPaymentMethodTokenWithCreditCard(creditCard: CreditCard, completion: SpreedlyAPICompletionBlock) {
+    open func createPaymentMethodTokenWithCreditCard(_ creditCard: CreditCard, completion: @escaping SpreedlyAPICompletionBlock) {
         let serializedRequest = RequestSerializer.serialize(creditCard)
         
         if serializedRequest.error == nil {
@@ -35,35 +35,35 @@ public class SpreedlyAPIClient: NSObject {
         }
     }
     
-    public func createPaymentMethodTokenWithApplePay(payment: PKPayment, completion: SpreedlyAPICompletionBlock) {
+    open func createPaymentMethodTokenWithApplePay(_ payment: PKPayment, completion: @escaping SpreedlyAPICompletionBlock) {
         self.createPaymentMethodTokenWithData(RequestSerializer.serialize(payment.token.paymentData), completion: completion)
     }
 
-    func createPaymentMethodTokenWithData(data: NSData, completion: SpreedlyAPICompletionBlock) {
-        let url = NSURL(string: apiUrl + "?environment_key=\(self.environmentKey)")
+    func createPaymentMethodTokenWithData(_ data: Data, completion: @escaping SpreedlyAPICompletionBlock) {
+        let url = URL(string: apiUrl + "?environment_key=\(self.environmentKey)")
 
-        let request = NSMutableURLRequest(URL: url!)
-        let session = NSURLSession.sharedSession()
+        var request = URLRequest(url: url!)
+        let session = URLSession.shared
 
-        request.HTTPBody = data
-        request.HTTPMethod = "POST"
+        request.httpBody = data
+        request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("spreedly-ios-lib/0.1.0", forHTTPHeaderField: "User-Agent")
         
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
             if (error != nil) {
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(paymentMethod: nil, error: error)
+                DispatchQueue.main.async(execute: {
+                    completion(nil, error as NSError?)
                 })
             } else {
                 do {
-                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
                         if let transactionDict = json["transaction"] as? NSDictionary {
                             if let paymentMethodDict = transactionDict["payment_method"] as? [String: AnyObject] {
                                 let paymentMethod = PaymentMethod(attributes: paymentMethodDict)
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completion(paymentMethod: paymentMethod, error: nil)
+                                DispatchQueue.main.async(execute: {
+                                    completion(paymentMethod, nil)
                                 })
                             }
                         } else {
@@ -71,19 +71,19 @@ public class SpreedlyAPIClient: NSObject {
                                 let error = errors[0] as! NSDictionary
                                 let userInfo = ["SpreedlyError": error["message"]!]
                                 let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completion(paymentMethod: nil, error: apiError)
+                                DispatchQueue.main.async(execute: {
+                                    completion(nil, apiError)
                                 })
                             }
                         }
                     }
                 } catch let parseError as NSError {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        completion(paymentMethod: nil, error: parseError)
+                    DispatchQueue.main.async(execute: {
+                        completion(nil, parseError)
                     })
                 }
             }
-        }
+        }) 
         
         task.resume()
     }

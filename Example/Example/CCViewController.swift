@@ -27,7 +27,7 @@ class CCViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func handleBuyNowTapped(sender: AnyObject) {
+    @IBAction func handleBuyNowTapped(_ sender: AnyObject) {
         let creditCard = CreditCard()
         creditCard.firstName = self.cardFirstName.text!
         creditCard.lastName = self.cardLastName.text!
@@ -39,7 +39,7 @@ class CCViewController: UIViewController {
         let client = SpreedlyAPIClient(environmentKey: environmentKey)
         client.createPaymentMethodTokenWithCreditCard(creditCard) { paymentMethod, error -> Void in
             if error != nil {
-                print(error)
+                print(error!)
                 self.showAlertView("Error", message: error!.description)
             } else {
                 self.showAlertView("Success", message: "Token: \(paymentMethod!.token!)")
@@ -50,23 +50,23 @@ class CCViewController: UIViewController {
         }
     }
     
-    func showAlertView(title: String, message: String) -> Void {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+    func showAlertView(_ title: String, message: String) -> Void {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
-    func extractMonth(expiration: String) -> String {
+    func extractMonth(_ expiration: String) -> String {
         return(splitExpirationString(expiration).first!)
     }
     
-    func extractYear(expiration: String) -> String {
+    func extractYear(_ expiration: String) -> String {
         return("20" + splitExpirationString(expiration).last!)
     }
     
-    func splitExpirationString(expiration: String) -> [String] {
-        let expirationArray = expiration.componentsSeparatedByString("/")
+    func splitExpirationString(_ expiration: String) -> [String] {
+        let expirationArray = expiration.components(separatedBy: "/")
         return expirationArray
     }
 }
