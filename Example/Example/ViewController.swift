@@ -39,8 +39,8 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
             ]
             
             let paymentAuthVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
-            paymentAuthVC.delegate = self
-            present(paymentAuthVC, animated: true, completion: nil)
+            paymentAuthVC?.delegate = self
+            present(paymentAuthVC!, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Error", message: "Apple Pay not supported on this device", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
