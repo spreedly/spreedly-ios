@@ -9,13 +9,13 @@
 import Foundation
 
 open class RequestSerializer {
-    open static func serialize(_ paymentData: Data) -> (Data) {
+    public static func serialize(_ paymentData: Data) -> (Data) {
         let paymentDataJSON = NSString(data: paymentData, encoding: String.Encoding.utf8.rawValue)!
         let body = "{ \"payment_method\": { \"apple_pay\": { \"payment_data\": \(paymentDataJSON) }}}"
         return(body.data(using: String.Encoding.utf8))!
     }
     
-    open static func serialize(_ creditCard: CreditCard) -> (data: Data?, error: NSError?) {
+    public static func serialize(_ creditCard: CreditCard) -> (data: Data?, error: NSError?) {
         var dict = [String: String]()
         
         if let creditCardFirstName = creditCard.firstName {
