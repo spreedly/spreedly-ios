@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46FCEDAC26B28251A5441524 /* Pods_Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB07D12C3865F11DBE8AE0 /* Pods_Spreedly.framework */; };
 		631723171BD67B81008EC5C2 /* Spreedly.h in Headers */ = {isa = PBXBuildFile; fileRef = 631723161BD67B81008EC5C2 /* Spreedly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6337405A1BC967150091372A /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633740591BC967150091372A /* RequestSerializer.swift */; };
 		63579E3E1BD6978F00E0485D /* CreditCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579E3D1BD6978F00E0485D /* CreditCardTests.swift */; };
@@ -18,6 +19,15 @@
 		63E67F4C1BC6BE4B0023E846 /* Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E67F411BC6BE4B0023E846 /* Spreedly.framework */; };
 		63E67F511BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */; };
 		63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */; };
+		B238FFC5230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */; };
+		B238FFC6230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */; };
+		B23D07A22303354F0003828E /* SpreedlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D07A12303354F0003828E /* SpreedlyTests.swift */; };
+		B23D07A423033F0D0003828E /* Spreedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D07A323033F0D0003828E /* Spreedly.swift */; };
+		B23D07A523033F0D0003828E /* Spreedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D07A323033F0D0003828E /* Spreedly.swift */; };
+		B2C26B27230DD80300FACDFD /* TransactionLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C26B26230DD80300FACDFD /* TransactionLifecycle.swift */; };
+		B2C26B28230DD80300FACDFD /* TransactionLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C26B26230DD80300FACDFD /* TransactionLifecycle.swift */; };
+		B2C26B2B230E330700FACDFD /* AdyenLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C26B29230E330700FACDFD /* AdyenLifecycleTests.swift */; };
+		D06D14EE5DCBACD83F8A89B8 /* Pods_Spreedly_SpreedlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40DE46959D75210E93E40E58 /* Pods_Spreedly_SpreedlyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24EB07D12C3865F11DBE8AE0 /* Pods_Spreedly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spreedly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40DE46959D75210E93E40E58 /* Pods_Spreedly_SpreedlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spreedly_SpreedlyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D261846DD7FC52334D6DC32 /* Pods-SpreedlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpreedlyTests.release.xcconfig"; path = "Target Support Files/Pods-SpreedlyTests/Pods-SpreedlyTests.release.xcconfig"; sourceTree = "<group>"; };
+		50C3D81F3AFBEB07F9C2D2B9 /* Pods-Spreedly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spreedly.release.xcconfig"; path = "Target Support Files/Pods-Spreedly/Pods-Spreedly.release.xcconfig"; sourceTree = "<group>"; };
+		56903ADBB677D9514824A18C /* Pods-Spreedly-SpreedlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spreedly-SpreedlyTests.release.xcconfig"; path = "Target Support Files/Pods-Spreedly-SpreedlyTests/Pods-Spreedly-SpreedlyTests.release.xcconfig"; sourceTree = "<group>"; };
 		631723161BD67B81008EC5C2 /* Spreedly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spreedly.h; sourceTree = "<group>"; };
 		633740591BC967150091372A /* RequestSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		63579E3D1BD6978F00E0485D /* CreditCardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardTests.swift; sourceTree = "<group>"; };
@@ -45,6 +60,16 @@
 		63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreedlyAPIClientTests.swift; sourceTree = "<group>"; };
 		63E67F521BC6BE4B0023E846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreedlyAPIClient.swift; sourceTree = "<group>"; };
+		A815051298F088F60F8BB11C /* Pods-Spreedly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spreedly.debug.xcconfig"; path = "Target Support Files/Pods-Spreedly/Pods-Spreedly.debug.xcconfig"; sourceTree = "<group>"; };
+		B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdyenLifecycle.swift; sourceTree = "<group>"; };
+		B23D07A12303354F0003828E /* SpreedlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreedlyTests.swift; sourceTree = "<group>"; };
+		B23D07A323033F0D0003828E /* Spreedly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spreedly.swift; sourceTree = "<group>"; };
+		B29360E023035E2300791E9B /* Adyen3DS2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Adyen3DS2.framework; path = Pods/Adyen3DS2/Dynamic/Adyen3DS2.framework; sourceTree = "<group>"; };
+		B2BB96342305A07A008A3C76 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2C26B26230DD80300FACDFD /* TransactionLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLifecycle.swift; sourceTree = "<group>"; };
+		B2C26B29230E330700FACDFD /* AdyenLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdyenLifecycleTests.swift; sourceTree = "<group>"; };
+		B4A903A5DB273C3487550C21 /* Pods-Spreedly-SpreedlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spreedly-SpreedlyTests.debug.xcconfig"; path = "Target Support Files/Pods-Spreedly-SpreedlyTests/Pods-Spreedly-SpreedlyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D4D178CC0A57EFC5FC225DE1 /* Pods-SpreedlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpreedlyTests.debug.xcconfig"; path = "Target Support Files/Pods-SpreedlyTests/Pods-SpreedlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6380CBC81BDE859C0065872C /* PassKit.framework in Frameworks */,
+				46FCEDAC26B28251A5441524 /* Pods_Spreedly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,16 +87,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E67F4C1BC6BE4B0023E846 /* Spreedly.framework in Frameworks */,
+				D06D14EE5DCBACD83F8A89B8 /* Pods_Spreedly_SpreedlyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41D0AA45E03EA5B2905F6CA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A815051298F088F60F8BB11C /* Pods-Spreedly.debug.xcconfig */,
+				50C3D81F3AFBEB07F9C2D2B9 /* Pods-Spreedly.release.xcconfig */,
+				D4D178CC0A57EFC5FC225DE1 /* Pods-SpreedlyTests.debug.xcconfig */,
+				4D261846DD7FC52334D6DC32 /* Pods-SpreedlyTests.release.xcconfig */,
+				B4A903A5DB273C3487550C21 /* Pods-Spreedly-SpreedlyTests.debug.xcconfig */,
+				56903ADBB677D9514824A18C /* Pods-Spreedly-SpreedlyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6380CBC61BDE85880065872C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2BB96342305A07A008A3C76 /* SwiftyJSON.framework */,
 				6380CBC71BDE859C0065872C /* PassKit.framework */,
+				B29360E023035E2300791E9B /* Adyen3DS2.framework */,
+				24EB07D12C3865F11DBE8AE0 /* Pods_Spreedly.framework */,
+				40DE46959D75210E93E40E58 /* Pods_Spreedly_SpreedlyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,6 +126,7 @@
 				63E67F4F1BC6BE4B0023E846 /* SpreedlyTests */,
 				63E67F421BC6BE4B0023E846 /* Products */,
 				6380CBC61BDE85880065872C /* Frameworks */,
+				41D0AA45E03EA5B2905F6CA0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +142,8 @@
 		63E67F431BC6BE4B0023E846 /* Spreedly */ = {
 			isa = PBXGroup;
 			children = (
+				B28C457E230C4A1D00705FE8 /* Threeds */,
+				B23D07A323033F0D0003828E /* Spreedly.swift */,
 				63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */,
 				635EB2BA1BC6E06900DCA59B /* CreditCard.swift */,
 				633740591BC967150091372A /* RequestSerializer.swift */,
@@ -110,6 +157,8 @@
 		63E67F4F1BC6BE4B0023E846 /* SpreedlyTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2AB0147230C778800904768 /* Threeds */,
+				B23D07A12303354F0003828E /* SpreedlyTests.swift */,
 				63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */,
 				63579E3D1BD6978F00E0485D /* CreditCardTests.swift */,
 				63579E3F1BD697BC00E0485D /* RequestSerializerTests.swift */,
@@ -135,6 +184,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B28C457E230C4A1D00705FE8 /* Threeds */ = {
+			isa = PBXGroup;
+			children = (
+				B28C457F230C4A2F00705FE8 /* Lifecycles */,
+			);
+			name = Threeds;
+			sourceTree = "<group>";
+		};
+		B28C457F230C4A2F00705FE8 /* Lifecycles */ = {
+			isa = PBXGroup;
+			children = (
+				B2C26B26230DD80300FACDFD /* TransactionLifecycle.swift */,
+				B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */,
+			);
+			name = Lifecycles;
+			sourceTree = "<group>";
+		};
+		B2AB0147230C778800904768 /* Threeds */ = {
+			isa = PBXGroup;
+			children = (
+				B2AB0149230C779C00904768 /* Lifecycles */,
+			);
+			name = Threeds;
+			sourceTree = "<group>";
+		};
+		B2AB0149230C779C00904768 /* Lifecycles */ = {
+			isa = PBXGroup;
+			children = (
+				B2C26B29230E330700FACDFD /* AdyenLifecycleTests.swift */,
+			);
+			name = Lifecycles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -153,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63E67F551BC6BE4B0023E846 /* Build configuration list for PBXNativeTarget "Spreedly" */;
 			buildPhases = (
+				B231354C16D745C12663304B /* [CP] Check Pods Manifest.lock */,
 				63E67F3C1BC6BE4B0023E846 /* Sources */,
 				63E67F3D1BC6BE4B0023E846 /* Frameworks */,
 				63E67F3E1BC6BE4B0023E846 /* Headers */,
@@ -171,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63E67F581BC6BE4B0023E846 /* Build configuration list for PBXNativeTarget "SpreedlyTests" */;
 			buildPhases = (
+				4A2271E409C45E85CC166649 /* [CP] Check Pods Manifest.lock */,
 				63E67F471BC6BE4B0023E846 /* Sources */,
 				63E67F481BC6BE4B0023E846 /* Frameworks */,
 				63E67F491BC6BE4B0023E846 /* Resources */,
+				E7B1D40428D6C393B0B802BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,14 +326,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A2271E409C45E85CC166649 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spreedly-SpreedlyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B231354C16D745C12663304B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spreedly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7B1D40428D6C393B0B802BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spreedly-SpreedlyTests/Pods-Spreedly-SpreedlyTests-frameworks.sh",
+				"${PODS_ROOT}/Adyen3DS2/Dynamic/Adyen3DS2.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Adyen3DS2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spreedly-SpreedlyTests/Pods-Spreedly-SpreedlyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		63E67F3C1BC6BE4B0023E846 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6337405A1BC967150091372A /* RequestSerializer.swift in Sources */,
+				B23D07A423033F0D0003828E /* Spreedly.swift in Sources */,
+				B238FFC5230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */,
 				635843D91BD9269F006A4F6B /* PaymentMethod.swift in Sources */,
 				635EB2BB1BC6E06900DCA59B /* CreditCard.swift in Sources */,
+				B2C26B27230DD80300FACDFD /* TransactionLifecycle.swift in Sources */,
 				63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,
 				635843DB1BD9361F006A4F6B /* SpreedlyError.swift in Sources */,
 			);
@@ -258,7 +413,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C26B2B230E330700FACDFD /* AdyenLifecycleTests.swift in Sources */,
+				B23D07A523033F0D0003828E /* Spreedly.swift in Sources */,
 				63579E3E1BD6978F00E0485D /* CreditCardTests.swift in Sources */,
+				B238FFC6230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */,
+				B23D07A22303354F0003828E /* SpreedlyTests.swift in Sources */,
+				B2C26B28230DD80300FACDFD /* TransactionLifecycle.swift in Sources */,
 				63E67F511BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift in Sources */,
 				63579E401BD697BC00E0485D /* RequestSerializerTests.swift in Sources */,
 			);
@@ -324,7 +484,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -378,7 +538,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -391,6 +551,7 @@
 		};
 		63E67F561BC6BE4B0023E846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A815051298F088F60F8BB11C /* Pods-Spreedly.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -399,9 +560,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Adyen3DS2/Dynamic",
+				);
 				INFOPLIST_FILE = Spreedly/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spreedly.Spreedly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +579,7 @@
 		};
 		63E67F571BC6BE4B0023E846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50C3D81F3AFBEB07F9C2D2B9 /* Pods-Spreedly.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -422,9 +588,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Adyen3DS2/Dynamic",
+				);
 				INFOPLIST_FILE = Spreedly/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spreedly.Spreedly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,6 +606,7 @@
 		};
 		63E67F591BC6BE4B0023E846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4A903A5DB273C3487550C21 /* Pods-Spreedly-SpreedlyTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SpreedlyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -448,6 +619,7 @@
 		};
 		63E67F5A1BC6BE4B0023E846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56903ADBB677D9514824A18C /* Pods-Spreedly-SpreedlyTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SpreedlyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

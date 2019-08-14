@@ -1,0 +1,6 @@
+framework module Pods_Spreedly_SpreedlyTests {
+  umbrella header "Pods-Spreedly-SpreedlyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

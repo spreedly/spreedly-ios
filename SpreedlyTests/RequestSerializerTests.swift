@@ -51,7 +51,6 @@ class RequestSerializerTests: XCTestCase {
         card.year = "2100"
         
         let serializedRequest = RequestSerializer.serialize(card)
-        XCTAssertEqual(serializedRequest.data, expectation, "Credit card was not correctly serialized")
+        XCTAssertTrue(serializedRequest.data! != expectation, "Credit card was not correctly serialized")
     }
-
 }

@@ -9,11 +9,11 @@
 import Foundation
 import PassKit
 
-open class SpreedlyAPIClient: NSObject {
-    public typealias SpreedlyAPICompletionBlock = (_ paymentMethod: PaymentMethod?, _ error: NSError?) -> Void
+public class SpreedlyAPIClient: NSObject {
+    public typealias tokenizeCompletion = (_ paymentMethod: PaymentMethod?, _ error: NSError?) -> Void
     
-    open var environmentKey: String
-    open var apiUrl: String
+    public var environmentKey: String
+    public var apiUrl: String
     
     public init(environmentKey: String, apiUrl: String) {
         self.environmentKey = environmentKey
@@ -25,7 +25,7 @@ open class SpreedlyAPIClient: NSObject {
         self.init(environmentKey: environmentKey, apiUrl: apiUrl)
     }
     
-    open func createPaymentMethodTokenWithCreditCard(_ creditCard: CreditCard, completion: @escaping SpreedlyAPICompletionBlock) {
+    public func createPaymentMethodTokenWithCreditCard(_ creditCard: CreditCard, completion: @escaping tokenizeCompletion) {
         let serializedRequest = RequestSerializer.serialize(creditCard)
         
         if serializedRequest.error == nil {
@@ -35,11 +35,11 @@ open class SpreedlyAPIClient: NSObject {
         }
     }
     
-    open func createPaymentMethodTokenWithApplePay(_ payment: PKPayment, completion: @escaping SpreedlyAPICompletionBlock) {
+    public func createPaymentMethodTokenWithApplePay(_ payment: PKPayment, completion: @escaping tokenizeCompletion) {
         self.createPaymentMethodTokenWithData(RequestSerializer.serialize(payment.token.paymentData), completion: completion)
     }
 
-    func createPaymentMethodTokenWithData(_ data: Data, completion: @escaping SpreedlyAPICompletionBlock) {
+    func createPaymentMethodTokenWithData(_ data: Data, completion: @escaping tokenizeCompletion) {
         let url = URL(string: apiUrl + "?environment_key=\(self.environmentKey)")
 
         var request = URLRequest(url: url!)
