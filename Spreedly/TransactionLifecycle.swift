@@ -28,6 +28,10 @@ public class TransactionLifecycle {
     }
     
     // Function stub
+    public func doRedirect(window: UIWindow?, redirectUrl: String, checkoutForm: String, checkoutUrl: String, redirectCompletion: @escaping (String) -> Void) {
+    }
+    
+    // Function stub
     public func cleanup() {
     }
     

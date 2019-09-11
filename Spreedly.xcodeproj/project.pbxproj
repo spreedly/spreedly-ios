@@ -19,6 +19,7 @@
 		63E67F4C1BC6BE4B0023E846 /* Spreedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E67F411BC6BE4B0023E846 /* Spreedly.framework */; };
 		63E67F511BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */; };
 		63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */; };
+		9D4784252327DE5F00927891 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4784242327DE5F00927891 /* RedirectViewController.swift */; };
 		B238FFC5230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */; };
 		B238FFC6230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */; };
 		B23D07A22303354F0003828E /* SpreedlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D07A12303354F0003828E /* SpreedlyTests.swift */; };
@@ -60,6 +61,7 @@
 		63E67F501BC6BE4B0023E846 /* SpreedlyAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreedlyAPIClientTests.swift; sourceTree = "<group>"; };
 		63E67F521BC6BE4B0023E846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E67F7B1BC6C1420023E846 /* SpreedlyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreedlyAPIClient.swift; sourceTree = "<group>"; };
+		9D4784242327DE5F00927891 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
 		A815051298F088F60F8BB11C /* Pods-Spreedly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spreedly.debug.xcconfig"; path = "Target Support Files/Pods-Spreedly/Pods-Spreedly.debug.xcconfig"; sourceTree = "<group>"; };
 		B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdyenLifecycle.swift; sourceTree = "<group>"; };
 		B23D07A12303354F0003828E /* SpreedlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreedlyTests.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				B2C26B26230DD80300FACDFD /* TransactionLifecycle.swift */,
 				B238FFC4230B1DCE00B07CF6 /* AdyenLifecycle.swift */,
+				9D4784242327DE5F00927891 /* RedirectViewController.swift */,
 			);
 			name = Lifecycles;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				B23D07A423033F0D0003828E /* Spreedly.swift in Sources */,
 				B238FFC5230B1DCE00B07CF6 /* AdyenLifecycle.swift in Sources */,
 				635843D91BD9269F006A4F6B /* PaymentMethod.swift in Sources */,
+				9D4784252327DE5F00927891 /* RedirectViewController.swift in Sources */,
 				635EB2BB1BC6E06900DCA59B /* CreditCard.swift in Sources */,
 				B2C26B27230DD80300FACDFD /* TransactionLifecycle.swift in Sources */,
 				63E67F7C1BC6C1420023E846 /* SpreedlyAPIClient.swift in Sources */,

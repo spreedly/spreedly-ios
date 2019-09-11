@@ -98,6 +98,24 @@ public class AdyenLifecycle: TransactionLifecycle {
         })
     }
     
+    override public func doRedirect(window: UIWindow?, redirectUrl: String, checkoutForm: String, checkoutUrl: String, redirectCompletion: @escaping (String) -> Void) {
+        guard let _ = window else {
+            print("Aborting doRedirect window was nil")
+            return
+        }
+        
+        let existingView = window!.rootViewController
+        let enhancedRedirectCompletion = { (token: String) -> Void in
+            window!.rootViewController = existingView
+            window!.makeKeyAndVisible()
+            redirectCompletion(token)
+        }
+        
+        let viewController = RedirectViewController(redirectUrl: redirectUrl, checkoutForm: checkoutForm, checkoutUrl: checkoutUrl, completionHandler: enhancedRedirectCompletion)
+        window!.rootViewController = viewController
+        window!.makeKeyAndVisible()
+    }
+    
     override public func cleanup() {
         self.adyService = nil
         self.adyTransaction = nil
