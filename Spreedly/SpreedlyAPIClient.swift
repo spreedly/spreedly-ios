@@ -69,7 +69,7 @@ public class SpreedlyAPIClient: NSObject {
                         } else {
                             if let errors = json["errors"] as? NSArray {
                                 let error = errors[0] as! NSDictionary
-                                let userInfo = ["SpreedlyError": error["message"]!]
+                                let userInfo = ["SpreedlyError": error["message"] as Any, "key": error["key"] as Any, "attribute": error["attribute"] as Any]
                                 let apiError = NSError(domain: "com.spreedly.lib", code: 60, userInfo: userInfo)
                                 DispatchQueue.main.async(execute: {
                                     completion(nil, apiError)
